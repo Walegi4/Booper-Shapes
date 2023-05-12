@@ -43,4 +43,16 @@ public class PlayerControls : MonoBehaviour
             rb.AddForce(Vector3.up * (jumpPower * rb.mass * rb.gravityScale * 20.0f));
         }
     }
+
+    //when an incoming collider makes contact
+    //with this object's collider
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //If colliders tag equals ground
+        if (collision.collider.tag == "Ground")
+        {
+            //isGrounded equals true
+            isGrounded = true;
+        }
+    }
 }
